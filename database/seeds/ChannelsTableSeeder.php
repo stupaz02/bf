@@ -13,13 +13,13 @@ class ChannelsTableSeeder extends Seeder
     public function run()
     {
         $channels = Channel::create([
-            'name' => 'Laravel',
-            'slug' => Str::slug('Laravel')
+            'name' => 'MOOE',
+            'slug' => Str::slug('mooe')
         ]);
 
         $channels = Channel::create([
-            'name' => 'Vue Js',
-            'slug' => Str::slug('Vue Js')
+            'name' => 'Salary',
+            'slug' => Str::slug('Salary')
         ]);
     }
 }

@@ -11100,3 +11100,10 @@ a.text-dark:focus {
   }
 }
 
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #6c757d;
+  border-color: gray;
+}
+

@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Discussion;
-use App\Http\Requests\CreateDiscussionRequest;
+use App\Http\Requests\CreateReplyRequest;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
-class DiscussionsController extends Controller
+class RepliesController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth')->only(['create', 'store','index','show']);
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +17,7 @@ class DiscussionsController extends Controller
      */
     public function index()
     {
-        return view('discussions.index',['discussions' => Discussion::latest()->paginate(2)]);
+        //
     }
 
     /**
@@ -33,7 +27,7 @@ class DiscussionsController extends Controller
      */
     public function create()
     {
-        return view('discussions.create');
+        //
     }
 
     /**
@@ -42,20 +36,17 @@ class DiscussionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateDiscussionRequest $request)
+    public function store(CreateReplyRequest $request, Discussion $discussion)
     {
-        auth()->user()->discussions()->create([
-            
-            'title'      => $request->title,
-            'slug'       => Str::slug($request->title),
-            'content'    => $request->content,
-            'channel_id' => $request->channel,
+        auth()->user()->replies()->create([
+            'content' => $request->content,
+            'discussion_id' => $discussion->id
+       ]);
 
-        ]);
-         
-        session()->flash('success', 'Discussion posted');
+       session('success', "Reply successfully created");
 
-        return redirect()->route('discussions.index');
+       return redirect()->back();
+
     }
 
     /**
@@ -64,10 +55,9 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Discussion $discussion)
+    public function show($id)
     {
-        
-        return view('discussions.show',['discussion' => $discussion]);
+        //
     }
 
     /**

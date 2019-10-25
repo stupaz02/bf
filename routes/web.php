@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+
+//Disable register route
+Auth::routes(['verify' => true, 'register' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('discussion', 'DiscussionsController');
+Route::resource('discussions', 'DiscussionsController');
+Route::resource('discussions/{discussion}/replies', 'RepliesController');
