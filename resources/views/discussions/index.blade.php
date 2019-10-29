@@ -2,13 +2,15 @@
 
 @section('content')
     @if($discussions->count() < 1)
-        <div>
-            No Discussions Yet
+        <div class="card">
+           <div class="card-body bg-info">
+               0 discussion
+           </div>
         </div>
     @else
         @foreach ($discussions as $discussion)
             <div class="card mt-2">
-                <div class="card-header bg-secondary text-light ">
+                <div class="card-header bg-dark text-light ">
                 <div class="d-flex justify-content-between">
                     <div>
                             <img src="{{ Gravatar::src($discussion->author->email,40) }}" class="rounded-circle"   alt="">
@@ -28,10 +30,11 @@
                 </div>
             </div>
         @endforeach
+        <div class="mt-2">
+            {{$discussions->links()}}
+        </div>
     @endif
 
   
-    <div class="mt-2">
-        {{$discussions->links()}}
-    </div>
+    
 @endsection

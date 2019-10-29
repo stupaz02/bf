@@ -25,17 +25,13 @@
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" value=""  autocomplete="off">
 
-                    {{-- @if ($errors->has('title'))
-                        <div class="invalid-feedback">
-                        <strong>{{$errors->first('title')}}</strong>
-                        </div>
-                    @endif --}}
-
-                </div>
+                    </div>
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <input id="content" type="hidden" name="content">
-                    <trix-editor input="content"></trix-editor>
+                    {{-- <input id="content" type="hidden" name="content">
+                    <trix-editor class="trix-content" input="content"></trix-editor> --}}
+                    <textarea id="editor" name="content"></textarea>
+                   
                 </div>
                 <div class="form-group">
                     <label for="channel">Channel</label>
@@ -52,9 +48,9 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css">
+    @include('partials.css')  
 @endsection
 
 @section('js')
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script> 
+  @include('partials.js')  
 @endsection

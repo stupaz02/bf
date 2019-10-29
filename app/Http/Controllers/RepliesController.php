@@ -43,7 +43,7 @@ class RepliesController extends Controller
             'discussion_id' => $discussion->id
        ]);
 
-       session('success', "Reply successfully created");
+       session('success', "Reply added");
 
        return redirect()->back();
 

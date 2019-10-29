@@ -11107,3 +11107,13 @@ a.text-dark:focus {
   border-color: gray;
 }
 
+.container-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container-body iframe {
+  max-width: 100%;
+  height: 400;
+}
+

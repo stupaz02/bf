@@ -81,7 +81,7 @@
                         </a>
                        <div class="card">
                            <div class="card-header bg-secondary text-light ">
-                               Channels <span class="float-right">{{ $channels->count()}}<span>
+                               Channels <span class="float-right badge badge-light">{{ $channels->count()}}<span>
                            </div>
                            <div class="card-body">
                                 <ul class="list-group">
@@ -110,6 +110,6 @@
     
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}"></script>
-    @yield('js')
+  @yield('js')
 </body>
 </html>

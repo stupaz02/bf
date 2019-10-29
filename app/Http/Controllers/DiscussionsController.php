@@ -23,7 +23,7 @@ class DiscussionsController extends Controller
      */
     public function index()
     {
-        return view('discussions.index',['discussions' => Discussion::latest()->paginate(2)]);
+        return view('discussions.index',['discussions' => Discussion::latest()->paginate(5)]);
     }
 
     /**

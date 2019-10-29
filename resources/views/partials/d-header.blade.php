@@ -1,4 +1,4 @@
- <div class="card-header bg-secondary text-light ">
+ <div class="card-header bg-dark text-light ">
            <div class="d-flex justify-content-between">
                <div>
                     <img src="{{ Gravatar::src($discussion->author->email,40) }}" class="rounded-circle"   alt="">
